@@ -11,4 +11,4 @@ These codes implemented a hwloc and libNUMA versions of STREAM to support NUMA a
 ====================================================
 Contact and Support
 
-Dounia Khaldi     khaldi@uh.edu
+Dounia Khaldi     dkhaldi@uh.edu
