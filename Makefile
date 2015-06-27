@@ -5,7 +5,7 @@ LDLIBSH = `pkg-config --libs hwloc`
 LDLIBSL = -lnuma
 
 
-all: stream-hwloc stream-libnuma
+all: stream-hwloc stream-libnuma 
 
 stream-hwloc: stream-hwloc.c 
 		$(CC)   $< $(CFLAGS) $(HWLOCFLAGS) -o $@ $(LDLIBSH)
