@@ -270,7 +270,6 @@ main()
 #endif
 
   hwloc_topology_t topology;
-  hwloc_cpuset_t cpuset;
   hwloc_obj_t obj;
   hwloc_bitmap_t set;
   hwloc_const_bitmap_t cset;
@@ -288,8 +287,6 @@ main()
     
   /* retrieve the entire set of NUMA nodes and count them */
   cset = hwloc_topology_get_topology_nodeset(topology);
-  cpuset = hwloc_topology_get_topology_cpuset(topology);
-
 
   nbnodes = hwloc_bitmap_weight(cset);
   if (nbnodes <= 0) {
@@ -301,15 +298,11 @@ main()
   }
     
   printf("\n \n there are %d nodes in the machine\n", nbnodes);
-  err = hwloc_get_membind_nodeset(topology, set, &policy, 0);
-  printf("\n \nbuffer membind policy is %d while we requested %d or %d, default is %d and firsttouch is %d \n \n \n",
-	 policy, HWLOC_MEMBIND_REPLICATE, HWLOC_MEMBIND_BIND, HWLOC_MEMBIND_DEFAULT, HWLOC_MEMBIND_FIRSTTOUCH);
 
     
   /* allocate replicated memory of all nodes */
   support = hwloc_topology_get_support(topology);
    
-    
   if (support->membind->interleave_membind) {
     a=NULL;
     b=NULL;
